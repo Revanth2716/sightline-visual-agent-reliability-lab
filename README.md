@@ -3,7 +3,7 @@
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.143-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-Chromium-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/python/)
-[![Tests: 106 Passed](https://img.shields.io/badge/Tests-106%20passed%20(0%20warnings)-brightgreen.svg)]()
+[![Tests: 106 Passed](https://img.shields.io/badge/Tests-106%20passed%20(0%20warnings)-brightgreen.svg)](#8-verification--test-coverage)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A local-first, zero-cost evaluation and reliability laboratory for measuring how safely and accurately AI agents interact with web interfaces.
@@ -59,6 +59,7 @@ As Large Multimodal Models (LMMs) and computer-use agents (e.g. Claude Computer 
 - **Zero Cost & Offline by Default**: 100% runnable without paid APIs, external cloud dependencies, or API keys.
 - **Strict Loopback Binding**: Server and synthetic pages bind only to `127.0.0.1`.
 - **Artifact Confinement**: All generated screenshots are saved strictly in `artifacts/screenshots/`, and served through sanitized IDs without exposing local host paths.
+- **Atomic File-Based Artifact Persistence**: Benchmark evidence is persisted purely as schema-validated JSON files on disk (`artifacts/benchmarks/{run_id}.json`) paired with screenshots (`artifacts/screenshots/{id}.png`), not in a SQLite database. Sightline intentionally avoids database dependencies to keep artifacts human-auditable, portable, diffable, and git-versionable without external database engines or migration overhead.
 - **Read-Only Dashboard Safety**: The Phase 4 Inspection Dashboard is strictly read-only. It provides no benchmark execution triggers, state mutations, or destructive controls. All query parameters are strictly sanitized against path traversal (`..`, `\`, `/`, `%00`).
 
 ---
@@ -216,6 +217,29 @@ async def main():
     await browser_mgr.close_all()
 
 asyncio.run(main())
+```
+
+### 5. Benchmark Scope & Sample Size Context
+
+The repository includes **7 bundled historical benchmark runs** (`artifacts/benchmarks/*.json`) spanning 23 total trials:
+- **Baseline Demonstration Purpose**: These bundled artifacts serve as concrete reference data to demonstrate benchmark runner mechanics, verification confusion matrices, trace generation, and Phase 4 dashboard visualization.
+- **Sample Size Context**: The small sample counts ($N=1$ to $N=5$ trials per scenario) are designed for fast local regression validation and behavioral mechanics testing (e.g. verifying that delayed enablement handles latency or that unapproved destructive operations are intercepted). They are **not** intended as statistically powered assertions of general agent reliability across arbitrary web layouts.
+- **Configuring Scaled Evaluations**: To conduct statistically significant evaluations, configure `BenchmarkConfig` with higher trial counts (e.g., $N=20$ or $N=50$ trials per scenario):
+
+```python
+config = BenchmarkConfig(
+    name="scaled_evaluation_run",
+    scenario_ids=[
+        "form_submission_validation",
+        "button_disambiguation",
+        "modal_confirmation_workflow",
+        "delayed_enablement_button",
+        "destructive_action_approval",
+    ],
+    trials_per_scenario=20,  # Scale trial count for statistical significance
+    strategy="closed_loop",  # "closed_loop" or "baseline"
+    seed=1337,
+)
 ```
 
 ---

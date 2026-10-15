@@ -41,6 +41,8 @@ class ActionPolicyResult(BaseModel):
 class ApprovalGate:
     """Enforces human-in-the-loop approval gates on high-risk and destructive actions."""
 
+    # Deterministic test-harness token for synthetic UI governance scenarios;
+    # not a secret credential or production authentication mechanism.
     VALID_SYSTEM_TOKEN = "APPROVAL-SIGHTLINE-2026"
 
     def __init__(self) -> None:
