@@ -1,0 +1,41 @@
+[
+    {
+        "Trial":  1,
+        "ExitCode":  null,
+        "RootPid":  6356,
+        "ObservedPidsCount":  13,
+        "PythonPeakWS_MB":  5.05,
+        "PythonPeakPriv_MB":  0.89,
+        "ChromiumPeakWS_MB":  473.66,
+        "ChromiumPeakPriv_MB":  195.19,
+        "TreePeakWS_MB":  648.97,
+        "TreePeakPriv_MB":  406.59,
+        "LingeringChromiumProcesses":  0
+    },
+    {
+        "Trial":  2,
+        "ExitCode":  null,
+        "RootPid":  19996,
+        "ObservedPidsCount":  11,
+        "PythonPeakWS_MB":  5.05,
+        "PythonPeakPriv_MB":  0.9,
+        "ChromiumPeakWS_MB":  459.8,
+        "ChromiumPeakPriv_MB":  189.22,
+        "TreePeakWS_MB":  634.13,
+        "TreePeakPriv_MB":  397.17,
+        "LingeringChromiumProcesses":  0
+    },
+    {
+        "Trial":  3,
+        "ExitCode":  null,
+        "RootPid":  16856,
+        "ObservedPidsCount":  11,
+        "PythonPeakWS_MB":  5.04,
+        "PythonPeakPriv_MB":  0.89,
+        "ChromiumPeakWS_MB":  458.62,
+        "ChromiumPeakPriv_MB":  188.68,
+        "TreePeakWS_MB":  632.31,
+        "TreePeakPriv_MB":  363.25,
+        "LingeringChromiumProcesses":  0
+    }
+]

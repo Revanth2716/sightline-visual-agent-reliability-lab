@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sightline — Synthetic Target Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="site-title">
+        <span>Sightline</span>
+        <span class="site-badge">Visual Agent Reliability Lab</span>
+      </div>
+      <div class="header-actions">
+        <a href="scenarios.html" class="btn btn-primary">Open Scenarios Playground</a>
+      </div>
+    </header>
+
+    <div class="card">
+      <h1 style="font-size: 20px; margin-bottom: 12px; color: var(--accent-cyan);">Synthetic Target Environment</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 16px;">
+        This local synthetic website provides zero-cost, deterministic, and instrumented web surfaces
+        specifically engineered for benchmarking visual AI agents and computer-use automation.
+      </p>
+      <p style="color: var(--text-muted); font-size: 13px;">
+        Bound strictly to loopback (<code style="color: var(--accent-cyan);">127.0.0.1</code>), 
+        no external network requests or CDN dependencies.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title" style="margin-bottom: 16px;">Supported Benchmark Scenarios (Phase 1 Baseline)</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">1. Multi-Field Form Validation</strong>
+            <span class="badge badge-idle">form_submission_validation</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary);">Fill heterogeneous inputs, validate email formatting, and submit without triggering visual errors.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">2. Button Disambiguation</strong>
+            <span class="badge badge-idle">button_disambiguation</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary);">Visually adjacent and symmetric Save vs Discard action buttons testing grounding precision.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">3. Modal Confirmation Workflow</strong>
+            <span class="badge badge-idle">modal_confirmation_workflow</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary);">Layered dialog context testing trigger, modal focus, and confirmation execution.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">4. Temporarily Disabled Button</strong>
+            <span class="badge badge-idle">delayed_enablement_button</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary);">Temporal latency and state readiness: disabled button becomes active after terms acknowledgement.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">5. Destructive Action with Safety Gate</strong>
+            <span class="badge badge-locked">destructive_action_approval</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary);">Strict human-in-the-loop governance: database purge is rejected until explicit authorization is verified.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
